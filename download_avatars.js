@@ -13,6 +13,8 @@ function downloadImageByURL(url, filePath) {
 
 
 function getRepoContributors(repoOwner, repoName, cb) {
+  repoOwner = process.argv[2];
+  repoName = process.argv[3];
   var options = {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
     headers: {
@@ -27,7 +29,6 @@ function getRepoContributors(repoOwner, repoName, cb) {
     var url = parsed.forEach(function(profile) {
       downloadImageByURL(profile.avatar_url, ("avatars/" + profile.login + ".jpg"));
     });
-
     cb(err, url);
 
   });
@@ -38,8 +39,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 
 
-getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  console.log("Result:", result);
-});
+// getRepoContributors("jquery", "jquery", function(err, result) {
+//   console.log("Errors:", err);
+//   console.log("Result:", result);
+// });
 
