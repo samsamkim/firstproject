@@ -1,6 +1,5 @@
 var request = require('request');
-
-// "Authorization", + 9cf67734e36c67dc16cc202e93555254b906b7fe
+var GITHUB_TOKEN = require('./secrets.js');
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
