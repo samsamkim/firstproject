@@ -1,3 +1,4 @@
+require('dotenv').config();
 var request = require('request');
 var GITHUB_TOKEN = require('./secrets.js');
 var fs = require('fs');
@@ -21,7 +22,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
     headers: {
       'User-Agent': 'request',
-      'Authorization': GITHUB_TOKEN
+      'Authorization': process.env.GITHUB_TOKEN
     }
   };
   request(options, function(err, res, body) {
